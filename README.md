@@ -1,8 +1,6 @@
-# React 19.2 Lesson 1 Playground
+# React 19.2 - Lesson 2 Playground
 
-## Demo
-
-An interactive educational playground demonstrating the fundamentals of React - **Describing the UI and Creating Your First React Component**.
+An interactive playground application for learning **Importing and Exporting Components** in React 19.2. This project demonstrates the concepts from Lesson 2 of the React tutorial series.
 
 ![React Playground](https://img.shields.io/badge/React-19.2-61DAFB?style=for-the-badge&logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
@@ -11,45 +9,22 @@ An interactive educational playground demonstrating the fundamentals of React - 
 
 ---
 
-<img width="1919" height="455" alt="image" src="https://github.com/user-attachments/assets/28e928e4-ad86-43b3-837a-970dad1ae267" />
+## 🎯 What You'll Learn
 
-<img width="1216" height="943" alt="image" src="https://github.com/user-attachments/assets/e25a7884-6a23-4b70-9559-3a0a173ae669" />
-
-<img width="902" height="739" alt="image" src="https://github.com/user-attachments/assets/65d73359-d45f-43ce-9c77-d75eca3f15a3" />
-
-<img width="818" height="399" alt="image" src="https://github.com/user-attachments/assets/2fe570d1-4742-482d-9f85-894242fd9813" />
-
-<img width="882" height="446" alt="image" src="https://github.com/user-attachments/assets/73c4ae0a-5a03-42ec-950c-c7dd1319bfcd" />
-
-<img width="822" height="575" alt="image" src="https://github.com/user-attachments/assets/87c809eb-ae22-4ad3-9ff3-818d42ed3a80" />
-
-<img width="883" height="638" alt="image" src="https://github.com/user-attachments/assets/75baaf09-c945-494d-8ffe-ee912ca70dca" />
-
-<img width="823" height="254" alt="image" src="https://github.com/user-attachments/assets/2e228c34-1efe-4086-b5e0-848a129e6b3b" />
-
-<img width="885" height="813" alt="image" src="https://github.com/user-attachments/assets/f71d3298-7959-42c5-852d-b9963b28e89d" />
-
-
-
-## 📚 Table of Contents
-
-- [Features](#-features)
-- [Getting Started](#-getting-started)
-- [Project Structure](#-project-structure)
-- [Lesson Topics Covered](#-lesson-topics-covered)
-- [Code Examples](#-code-examples)
-- [Technologies Used](#-technologies-used)
-
----
+- The root component file and its purpose
+- How to export and import components
+- Default exports vs. named exports
+- Exporting multiple components from the same file
+- Splitting components into multiple files for better organization
 
 ## ✨ Features
 
-- **Interactive Code Examples** - View syntax-highlighted code blocks with line numbers
-- **Live Component Previews** - See actual React components rendered in real-time
-- **Key Points Visualization** - Correct ✅ and incorrect ❌ patterns clearly displayed
-- **Responsive Design** - Works on desktop and mobile devices
-- **Beautiful UI** - Modern gradient design with smooth animations
-- **Educational Structure** - Content organized into 5 clear sections
+- **📖 Interactive Lessons**: Step-by-step sections explaining import/export concepts
+- **🔴 Live Examples**: Real-time component previews demonstrating each concept
+- **💻 Code Snippets**: Syntax-highlighted code blocks with line numbers
+- **📊 Comparison Tables**: Side-by-side comparison of export syntaxes
+- **✅ Key Points**: Visual indicators for best practices and common mistakes
+- **📚 Recap Section**: Summary of all key concepts covered
 
 ---
 
@@ -57,43 +32,44 @@ An interactive educational playground demonstrating the fundamentals of React - 
 
 ### Prerequisites
 
-- Node.js 18+ or Bun
-- npm, yarn, or bun package manager
+- Node.js (v18 or higher)
+- npm or yarn or bun
 
 ### Installation
 
-1. **Clone the repository**
-   ```bash
-   git clone <your-repo-url>
-   cd react-lesson-1-playground
-   ```
+```bash
+# Clone the repository
+git clone <your-repo-url>
+cd react-lesson-2-playground
 
-2. **Install dependencies**
-   ```bash
-   npm install
-   # or
-   yarn install
-   # or
-   bun install
-   ```
+# Install dependencies
+npm install
+# or
+yarn install
+# or
+bun install
+```
 
-3. **Start the development server**
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   # or
-   bun dev
-   ```
+### Running the Development Server
 
-4. **Open your browser**
-   Navigate to `http://localhost:5173`
+```bash
+npm run dev
+# or
+yarn dev
+# or
+bun dev
+```
 
-### Build for Production
+Open [http://localhost:5173](http://localhost:5173) in your browser to see the application.
+
+### Building for Production
 
 ```bash
 npm run build
-npm run preview
+# or
+yarn build
+# or
+bun run build
 ```
 
 ---
@@ -103,25 +79,25 @@ npm run preview
 ```
 src/
 ├── components/
-│   ├── examples/                  # Live example components from the lesson
-│   │   ├── Gallery.tsx            # Demonstrates component composition
-│   │   ├── MyFirstComponent.tsx   # First React component example
-│   │   ├── Profile.tsx            # Simple image component
-│   │   └── TableOfContents.tsx    # Reusable component demo
-│   ├── ui/                        # Shadcn UI components (buttons, cards, etc.)
-│   ├── CodeBlock.tsx              # Syntax-highlighted code display
-│   ├── KeyPoint.tsx               # Correct/incorrect pattern indicators
-│   ├── LessonSection.tsx          # Section container with numbering
-│   ├── LiveExample.tsx            # Live preview wrapper
-│   └── RecapCard.tsx              # Summary checklist component
-├── hooks/                         # Custom React hooks
-├── lib/                           # Utility functions
+│   ├── examples/
+│   │   └── lesson2/
+│   │       ├── ProfileDefault.tsx    # Default export example
+│   │       ├── ProfileNamed.tsx      # Named exports example
+│   │       ├── GalleryWithProfile.tsx # Mixed exports example
+│   │       ├── RootComponentDemo.tsx  # Root component demo
+│   │       └── SplitFilesDemo.tsx    # File splitting demo
+│   ├── ui/                           # Shadcn UI components
+│   ├── CodeBlock.tsx         # Syntax-highlighted code display
+│   ├── ImportExportTable.tsx # Export syntax comparison table
+│   ├── KeyPoint.tsx          # Highlighted tips and warnings
+│   ├── LessonSection.tsx     # Section wrapper with numbering
+│   ├── LiveExample.tsx       # Live preview container
+│   └── RecapCard.tsx         # Lesson summary component
 ├── pages/
-│   ├── Index.tsx                  # Main lesson page
-│   └── NotFound.tsx               # 404 page
-├── App.tsx                        # Root component with routing
-├── index.css                      # Design system (CSS variables)
-└── main.tsx                       # Application entry point
+│   ├── Index.tsx             # Main lesson page
+│   └── NotFound.tsx          # 404 page
+├── index.css                 # Global styles and design tokens
+└── main.tsx                  # Application entry point
 ```
 
 ---
@@ -132,191 +108,220 @@ src/
 
 | File | Purpose |
 |------|---------|
-| `src/main.tsx` | **Entry point** - Renders the React app to the DOM using `createRoot` |
-| `src/App.tsx` | **Root component** - Contains React Router configuration, QueryClient provider, and global UI providers (Toaster, Tooltip) |
-| `src/index.css` | **Design system** - Defines all CSS custom properties for colors, shadows, gradients, and theming |
-| `tailwind.config.ts` | **Tailwind configuration** - Extends Tailwind with custom colors, fonts, animations, and design tokens |
-| `vite.config.ts` | **Build configuration** - Vite bundler settings with path aliases and plugins |
+| `src/main.tsx` | **Entry point** - Renders the React app to the DOM |
+| `src/App.tsx` | **Root component** - Contains React Router and providers |
+| `src/index.css` | **Design system** - CSS custom properties for theming |
+| `tailwind.config.ts` | **Tailwind configuration** - Custom colors, fonts, animations |
+| `vite.config.ts` | **Build configuration** - Vite settings with path aliases |
 
-### Page Components
+### Lesson 2 Example Components
 
 | File | Purpose |
 |------|---------|
-| `src/pages/Index.tsx` | **Main lesson page** - Renders all 5 lesson sections with code examples, live previews, and the recap card |
-| `src/pages/NotFound.tsx` | **404 page** - Displayed when navigating to non-existent routes |
+| `ProfileDefault.tsx` | Demonstrates **default export** - one main export per file |
+| `ProfileNamed.tsx` | Demonstrates **named exports** - multiple exports from one file (`Profile`, `ProfileCard`, `ProfileBadge`) |
+| `GalleryWithProfile.tsx` | Demonstrates **mixed exports** - combining default and named exports |
+| `RootComponentDemo.tsx` | Shows components living together in the **root component file** |
+| `SplitFilesDemo.tsx` | Visualizes the recommended **file structure** for organizing components |
 
 ### UI Components
 
 | File | Purpose |
 |------|---------|
-| `src/components/CodeBlock.tsx` | Displays code snippets with syntax highlighting, line numbers, and a filename header with colored dots |
-| `src/components/LessonSection.tsx` | Wraps each lesson topic with a numbered badge and title, includes staggered fade-in animation |
-| `src/components/KeyPoint.tsx` | Shows tips/rules with three variants: `correct` (green), `incorrect` (red), `info` (blue) |
-| `src/components/LiveExample.tsx` | Container with a gradient header showing "Live Preview" with a pulsing indicator |
-| `src/components/RecapCard.tsx` | Summary card displaying checkmarked list items with slide-in animations |
-
-### Example Components (from the Lesson)
-
-| File | Purpose |
-|------|---------|
-| `src/components/examples/MyFirstComponent.tsx` | **Section 1 example** - Demonstrates a basic React component returning JSX with an article, heading, and ordered list |
-| `src/components/examples/Profile.tsx` | **Section 3 example** - Shows a simple component rendering a single image element with styling |
-| `src/components/examples/Gallery.tsx` | **Section 4 example** - Demonstrates component composition by importing and using `Profile` three times |
-| `src/components/examples/TableOfContents.tsx` | **Section 2 example** - Shows the reusable component pattern with `TableOfContents` used twice in `Page` |
-
-### Utility Files
-
-| File | Purpose |
-|------|---------|
-| `src/lib/utils.ts` | Contains the `cn()` utility function for merging Tailwind classes |
-| `src/hooks/use-mobile.tsx` | Custom hook for detecting mobile viewport |
-| `src/hooks/use-toast.ts` | Toast notification hook from Shadcn |
+| `CodeBlock.tsx` | Displays code snippets with syntax highlighting and line numbers |
+| `ImportExportTable.tsx` | Comparison table showing export/import syntax differences |
+| `LessonSection.tsx` | Section wrapper with numbered badge and title |
+| `KeyPoint.tsx` | Highlighted tips with correct/incorrect/info variants |
+| `LiveExample.tsx` | Container with "Live Preview" header and pulsing indicator |
+| `RecapCard.tsx` | Summary card with checkmarked list items |
 
 ---
 
-## 📖 Lesson Topics Covered
+## 📚 Lesson Topics
 
-### Section 1: Understanding React and the UI
-React is a JavaScript library for building user interfaces from reusable components. Shows the comparison between regular HTML and React component syntax.
-
-### Section 2: Components as UI Building Blocks
-Create custom tags (like `<TableOfContents />`) that can be reused throughout your application multiple times.
-
-### Section 3: Defining a Component
-A React component is a JavaScript function that returns JSX markup. Key rules: capital letter names, return JSX, wrap multi-line JSX in parentheses.
-
-### Section 4: Using Components
-Nest components inside other components to build complex UIs. React distinguishes lowercase (HTML) from Uppercase (components).
-
-### Section 5: Nesting and Organizing Components
-Best practices: define components at the top level, never nest component definitions inside other components.
-
----
-
-## 💻 Code Examples
-
-### Creating Your First Component
+### 1. The Root Component File
+Understanding the main entry point (App.js/App.tsx) where components can coexist.
 
 ```tsx
-// src/components/examples/MyFirstComponent.tsx
-export default function MyFirstComponent() {
-  return (
-    <article className="space-y-3">
-      <h1 className="text-xl font-bold text-foreground">My First Component</h1>
-      <ol className="list-decimal list-inside space-y-1 text-muted-foreground">
-        <li>Components: UI Building Blocks</li>
-        <li>Defining a Component</li>
-        <li>Using a Component</li>
-      </ol>
-    </article>
-  );
+// Both Profile and Gallery in the same file
+function Profile() {
+  return <img src="..." alt="Katherine Johnson" />;
 }
-```
-
-### Simple Image Component
-
-```tsx
-// src/components/examples/Profile.tsx
-export default function Profile() {
-  return (
-    <img
-      src="https://i.imgur.com/MK3eW3Am.jpg"
-      alt="Katherine Johnson"
-      className="w-24 h-24 rounded-full object-cover border-2 border-primary shadow-md"
-    />
-  );
-}
-```
-
-### Component Composition
-
-```tsx
-// src/components/examples/Gallery.tsx
-import Profile from "./Profile";
 
 export default function Gallery() {
   return (
-    <section className="space-y-4">
-      <h1 className="text-xl font-bold text-foreground">Amazing Scientists</h1>
-      <div className="flex gap-4 flex-wrap">
-        <Profile />
-        <Profile />
-        <Profile />
-      </div>
+    <section>
+      <h1>Amazing scientists</h1>
+      <Profile />
     </section>
   );
 }
 ```
 
-### Reusable Component Pattern
+### 2. Exporting and Importing a Component
+How to make components available to other files using export/import.
 
 ```tsx
-// src/components/examples/TableOfContents.tsx
-function TableOfContents() {
-  return (
-    <article className="p-4 bg-secondary rounded-lg border border-border">
-      <h2 className="text-lg font-semibold text-foreground mb-2">Table of Contents</h2>
-      <ol className="list-decimal list-inside space-y-1 text-muted-foreground text-sm">
-        <li>Components: UI Building Blocks</li>
-        <li>Defining a Component</li>
-        <li>Using a Component</li>
-      </ol>
-    </article>
-  );
-}
+// Gallery.js
+export default function Gallery() { /* ... */ }
 
-export default function Page() {
-  return (
-    <div className="space-y-4">
-      <TableOfContents />
-      <TableOfContents />
-    </div>
-  );
-}
+// App.js
+import Gallery from './Gallery.js';
 ```
 
-### Code Display Component
+### 3. Default vs. Named Exports
+
+| Syntax | Export Statement | Import Statement |
+|--------|------------------|------------------|
+| Default | `export default function Gallery() { }` | `import Gallery from './Gallery.js'` |
+| Named | `export function Profile() { }` | `import { Profile } from './Gallery.js'` |
+| Mixed | `export default Gallery; export { Profile }` | `import Gallery, { Profile } from './Gallery.js'` |
+
+### 4. Multiple Exports from Same File
 
 ```tsx
-// src/components/CodeBlock.tsx
-interface CodeBlockProps {
-  code: string;
-  title?: string;
-  showLineNumbers?: boolean;
-}
+// Gallery.js
+export function Profile() { /* ... */ }
+export function SectionTitle() { /* ... */ }
+export default function Gallery() { /* ... */ }
 
-const CodeBlock = ({ code, title, showLineNumbers = true }: CodeBlockProps) => {
-  const lines = code.trim().split('\n');
+// App.js - Import default AND named exports
+import Gallery, { Profile, SectionTitle } from './Gallery.js';
+```
 
-  const highlightSyntax = (line: string) => {
-    return line
-      .replace(/(function|return|export|default|const|let|import|from)/g, 
-        '<span class="text-code-keyword font-semibold">$1</span>')
-      .replace(/("[^"]*")/g, '<span class="text-code-string">$1</span>');
-  };
+### 5. Splitting Components into Multiple Files
 
+Best practices for organizing larger codebases:
+
+```
+src/
+├── components/
+│   ├── Profile.tsx      # export default Profile
+│   ├── Gallery.tsx      # import Profile from './Profile'
+│   └── App.tsx          # import Gallery from './Gallery'
+```
+
+---
+
+## 🧩 Code Examples
+
+### ProfileDefault.tsx (Default Export)
+
+```tsx
+const Profile = () => {
   return (
-    <div className="rounded-lg overflow-hidden bg-code-bg border border-border shadow-md">
-      {title && (
-        <div className="px-4 py-2 bg-secondary border-b border-border">
-          <span className="font-mono text-sm text-muted-foreground">{title}</span>
-        </div>
-      )}
-      <pre className="p-4 font-mono text-sm leading-relaxed">
-        {lines.map((line, index) => (
-          <div key={index} className="flex">
-            {showLineNumbers && (
-              <span className="select-none text-muted-foreground/50 w-8">{index + 1}</span>
-            )}
-            <code dangerouslySetInnerHTML={{ __html: highlightSyntax(line) }} />
-          </div>
-        ))}
-      </pre>
+    <img
+      src="https://i.imgur.com/MK3eW3As.jpg"
+      alt="Katherine Johnson"
+      className="w-24 h-24 rounded-full object-cover"
+    />
+  );
+};
+
+// Default export - only one allowed per file
+export default Profile;
+```
+
+### ProfileNamed.tsx (Named Exports)
+
+```tsx
+// Named export #1
+export const Profile = () => {
+  return <img src="..." alt="Katherine Johnson" />;
+};
+
+// Named export #2
+export const ProfileCard = () => {
+  return (
+    <div>
+      <Profile />
+      <p>Katherine Johnson</p>
     </div>
   );
 };
 
-export default CodeBlock;
+// Named export #3
+export const ProfileBadge = () => {
+  return <span>K. Johnson</span>;
+};
+```
+
+### GalleryWithProfile.tsx (Mixed Exports)
+
+```tsx
+// Named export
+export const Profile = () => <img src="..." />;
+
+// Named export
+export const SectionTitle = ({ children }) => <h2>{children}</h2>;
+
+// Default export (main component)
+const Gallery = () => (
+  <section>
+    <SectionTitle>Amazing Scientists</SectionTitle>
+    <Profile />
+  </section>
+);
+
+export default Gallery;
+```
+
+### ImportExportTable.tsx
+
+```tsx
+interface ImportExportTableProps {
+  data: {
+    syntax: string;
+    exportStatement: string;
+    importStatement: string;
+  }[];
+}
+
+const ImportExportTable = ({ data }: ImportExportTableProps) => {
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th>Syntax</th>
+          <th>Export Statement</th>
+          <th>Import Statement</th>
+        </tr>
+      </thead>
+      <tbody>
+        {data.map((row, index) => (
+          <tr key={index}>
+            <td>{row.syntax}</td>
+            <td><code>{row.exportStatement}</code></td>
+            <td><code>{row.importStatement}</code></td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+};
+```
+
+---
+
+## 🎨 Design System
+
+The application uses CSS custom properties for consistent theming:
+
+```css
+:root {
+  /* Primary Colors */
+  --primary: 199 89% 48%;          /* Cyan blue - main brand color */
+  --accent: 173 80% 40%;           /* Teal - accent color */
+  
+  /* Code Syntax Highlighting */
+  --code-bg: 220 14% 96%;          /* Code block background */
+  --code-keyword: 199 89% 48%;     /* Keywords (function, return, etc.) */
+  --code-string: 142 71% 45%;      /* String values */
+  
+  /* Effects */
+  --gradient-hero: linear-gradient(135deg, hsl(199 89% 48%), hsl(173 80% 40%));
+  --shadow-glow: 0 0 30px hsl(199 89% 48% / 0.2);
+}
 ```
 
 ---
@@ -332,44 +337,30 @@ export default CodeBlock;
 | **React Router** | 6.x | Client-side routing |
 | **Lucide React** | 0.462 | Beautiful icon library |
 | **Shadcn/ui** | - | Pre-built accessible UI components |
-| **TanStack Query** | 5.x | Data fetching and caching |
 
 ---
 
-## 🎨 Design System
+## 📝 Key Concepts Summary
 
-The app uses CSS custom properties for consistent theming. Key design tokens:
-
-```css
-:root {
-  /* Primary Colors */
-  --primary: 199 89% 48%;          /* Cyan blue - main brand color */
-  --accent: 173 80% 40%;           /* Teal - accent color */
-  
-  /* Code Syntax Highlighting */
-  --code-bg: 220 14% 96%;          /* Code block background */
-  --code-keyword: 199 89% 48%;     /* Keywords (function, return, etc.) */
-  --code-string: 142 71% 45%;      /* String values */
-  --code-component: 280 65% 60%;   /* Component names */
-  --code-tag: 25 95% 53%;          /* JSX tags */
-  
-  /* Effects */
-  --gradient-hero: linear-gradient(135deg, hsl(199 89% 48%), hsl(173 80% 40%));
-  --shadow-glow: 0 0 30px hsl(199 89% 48% / 0.2);
-}
-```
+| Concept | Syntax | Use Case |
+|---------|--------|----------|
+| Default Export | `export default Component` | Main component of a file |
+| Named Export | `export { Component }` | Multiple exports per file |
+| Default Import | `import Component from './file'` | Any name works |
+| Named Import | `import { Component } from './file'` | Exact name required |
+| Mixed Import | `import Default, { Named }` | Combine both types |
 
 ---
 
-## 📝 Key Concepts Recap
+## 📖 Recap
 
-- ✅ React is a JavaScript library for building user interfaces
-- ✅ The UI is made up of components, which are reusable building blocks
-- ✅ A React component is a JavaScript function that returns JSX markup
-- ✅ Component names must always start with a capital letter
-- ✅ You can reuse components anywhere in your app
-- ✅ Components can be nested inside others, forming a tree structure
-- ✅ Define all components at the top level — never inside another component
+- ✅ The root component file (App.js) is the main entry point of your React application
+- ✅ Use `export default` for the main component of a file — only one allowed per file
+- ✅ Use named exports (`export function`) when you need multiple exports from one file
+- ✅ Import default exports without curly braces: `import Gallery from './Gallery'`
+- ✅ Import named exports with curly braces: `import { Profile } from './Gallery'`
+- ✅ You can mix default and named exports: `import Gallery, { Profile } from './Gallery'`
+- ✅ Split components into separate files for better organization and maintainability
 
 ---
 
@@ -382,3 +373,8 @@ The app uses CSS custom properties for consistent theming. Key design tokens:
 ## 📄 License
 
 This project is open source and available for educational purposes.
+
+---
+
+**React Version**: 19.2  
+**Lesson**: 2 - Importing and Exporting Components

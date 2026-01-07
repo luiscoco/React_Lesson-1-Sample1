@@ -1,206 +1,75 @@
-import CodeBlock from "@/components/CodeBlock";
 import LessonSection from "@/components/LessonSection";
+import CodeBlock from "@/components/CodeBlock";
 import KeyPoint from "@/components/KeyPoint";
 import LiveExample from "@/components/LiveExample";
 import RecapCard from "@/components/RecapCard";
-import MyFirstComponent from "@/components/examples/MyFirstComponent";
-import Profile from "@/components/examples/Profile";
-import Gallery from "@/components/examples/Gallery";
-import Page from "@/components/examples/TableOfContents";
+import ImportExportTable from "@/components/ImportExportTable";
+import RootComponentDemo from "@/components/examples/lesson2/RootComponentDemo";
+import ProfileDefault from "@/components/examples/lesson2/ProfileDefault";
+import { Profile, ProfileCard, ProfileBadge } from "@/components/examples/lesson2/ProfileNamed";
+import Gallery, { SectionTitle } from "@/components/examples/lesson2/GalleryWithProfile";
+import SplitFilesDemo from "@/components/examples/lesson2/SplitFilesDemo";
 
 const Index = () => {
+  const importExportData = [
+    {
+      syntax: "Default",
+      exportStatement: "export default function Gallery() { }",
+      importStatement: "import Gallery from './Gallery.js'",
+    },
+    {
+      syntax: "Named",
+      exportStatement: "export function Profile() { }",
+      importStatement: "import { Profile } from './Gallery.js'",
+    },
+    {
+      syntax: "Mixed",
+      exportStatement: "export default Gallery; export { Profile }",
+      importStatement: "import Gallery, { Profile } from './Gallery.js'",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <header className="bg-gradient-hero text-primary-foreground py-16 px-6">
-        <div className="container max-w-4xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 bg-primary-foreground/20 px-4 py-1.5 rounded-full text-sm font-medium mb-6 animate-fade-in">
-            <span className="w-2 h-2 rounded-full bg-primary-foreground animate-pulse" />
-            React 19.2 Playground
+      <header className="bg-gradient-hero py-16 px-6 shadow-glow">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-background/10 backdrop-blur rounded-full text-primary-foreground text-sm mb-6 animate-fade-in">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-foreground opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-foreground"></span>
+            </span>
+            React 19.2 Tutorial
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 animate-fade-in" style={{ animationDelay: "100ms" }}>
-            Lesson 1
+          <h1 className="text-4xl md:text-5xl font-bold text-primary-foreground mb-4 animate-slide-in">
+            Lesson 2: Importing and Exporting Components
           </h1>
-          <p className="text-xl opacity-90 animate-fade-in" style={{ animationDelay: "200ms" }}>
-            Describing the UI and Creating Your First React Component
-          </p>
-          <p className="mt-4 text-sm opacity-75 animate-fade-in" style={{ animationDelay: "300ms" }}>
-            by Luis Coco Enríquez
+          <p className="text-xl text-primary-foreground/80 max-w-2xl mx-auto animate-fade-in" style={{ animationDelay: '200ms' }}>
+            Learn how to organize your React components across multiple files using imports and exports
           </p>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="container max-w-4xl mx-auto px-6 py-12">
-        
-        {/* Section 1: Understanding React */}
-        <LessonSection number={1} title="Understanding React and the UI">
+      <main className="max-w-4xl mx-auto px-6 py-12">
+        {/* Section 1: Root Component File */}
+        <LessonSection number={1} title="The Root Component File">
           <div className="space-y-6">
             <p className="text-muted-foreground leading-relaxed">
-              React is a JavaScript library for building user interfaces — everything that users see and interact with.
-              A UI is built from smaller parts: buttons, text, images, and layouts. React lets you group these parts 
-              into <strong className="text-foreground">components</strong> that can be reused.
-            </p>
-            
-            <div className="grid gap-6 md:grid-cols-2">
-              <div>
-                <h4 className="text-sm font-medium text-muted-foreground mb-3">Regular HTML:</h4>
-                <CodeBlock
-                  title="index.html"
-                  code={`<article>
-  <h1>My First Component</h1>
-  <ol>
-    <li>Components: UI Building Blocks</li>
-    <li>Defining a Component</li>
-    <li>Using a Component</li>
-  </ol>
-</article>`}
-                />
-              </div>
-              <div>
-                <h4 className="text-sm font-medium text-muted-foreground mb-3">React Component:</h4>
-                <CodeBlock
-                  title="MyFirstComponent.tsx"
-                  code={`export default function MyFirstComponent() {
-  return (
-    <article>
-      <h1>My First Component</h1>
-      <ol>
-        <li>Components: UI Building Blocks</li>
-        <li>Defining a Component</li>
-        <li>Using a Component</li>
-      </ol>
-    </article>
-  );
-}`}
-                />
-              </div>
-            </div>
-
-            <LiveExample title="MyFirstComponent">
-              <MyFirstComponent />
-            </LiveExample>
-          </div>
-        </LessonSection>
-
-        {/* Section 2: Components as Building Blocks */}
-        <LessonSection number={2} title="Components: UI Building Blocks">
-          <div className="space-y-6">
-            <p className="text-muted-foreground leading-relaxed">
-              React lets you create your own custom tags, just like HTML provides built-in tags. 
-              You can then reuse those custom tags as many times as you want.
+              In a typical React app, components start in a root file (like <code className="px-2 py-1 bg-muted rounded text-primary">App.js</code> or <code className="px-2 py-1 bg-muted rounded text-primary">App.tsx</code>). 
+              Both <code className="px-2 py-1 bg-muted rounded text-primary">Profile</code> and <code className="px-2 py-1 bg-muted rounded text-primary">Gallery</code> can live in the same file.
             </p>
 
             <CodeBlock
-              title="TableOfContents.tsx"
-              code={`function TableOfContents() {
-  return (
-    <article>
-      <h2>Table of Contents</h2>
-      <ol>
-        <li>Components: UI Building Blocks</li>
-        <li>Defining a Component</li>
-        <li>Using a Component</li>
-      </ol>
-    </article>
-  );
+              title="App.js (Root Component)"
+              code={`function Profile() {
+  return <img src="https://i.imgur.com/MK3eW3As.jpg" alt="Katherine Johnson" />;
 }
-
-function Page() {
-  return (
-    <div>
-      <TableOfContents />
-      <TableOfContents />
-    </div>
-  );
-}`}
-            />
-
-            <LiveExample title="Reusable TableOfContents">
-              <Page />
-            </LiveExample>
-          </div>
-        </LessonSection>
-
-        {/* Section 3: Defining a Component */}
-        <LessonSection number={3} title="Defining a Component">
-          <div className="space-y-6">
-            <p className="text-muted-foreground leading-relaxed">
-              A React component is a JavaScript function that returns UI markup. 
-              This markup uses JSX, a syntax that looks like HTML but runs inside JavaScript.
-            </p>
-
-            <CodeBlock
-              title="Profile.tsx"
-              code={`export default function Profile() {
-  return (
-    <img
-      src="https://i.imgur.com/MK3eW3Am.jpg"
-      alt="Katherine Johnson"
-    />
-  );
-}`}
-            />
-
-            <LiveExample title="Profile Component">
-              <Profile />
-            </LiveExample>
-
-            <h4 className="text-lg font-medium text-foreground mt-8 mb-4">Key Points:</h4>
-            <div className="space-y-3">
-              <KeyPoint type="info">The function name must start with a capital letter.</KeyPoint>
-              <KeyPoint type="info">The component must return JSX.</KeyPoint>
-              <KeyPoint type="info">JSX must be wrapped in parentheses if it spans multiple lines.</KeyPoint>
-            </div>
-
-            <div className="grid gap-4 md:grid-cols-2 mt-6">
-              <div>
-                <KeyPoint type="correct">
-                  <div className="font-mono text-xs">
-                    return (<br />
-                    &nbsp;&nbsp;&lt;div&gt;&lt;p&gt;Hello!&lt;/p&gt;&lt;/div&gt;<br />
-                    );
-                  </div>
-                </KeyPoint>
-              </div>
-              <div>
-                <KeyPoint type="incorrect">
-                  <div className="font-mono text-xs">
-                    return<br />
-                    &nbsp;&nbsp;&lt;div&gt;Hello!&lt;/div&gt;;<br />
-                    <span className="text-destructive">(missing parentheses)</span>
-                  </div>
-                </KeyPoint>
-              </div>
-            </div>
-          </div>
-        </LessonSection>
-
-        {/* Section 4: Using Components */}
-        <LessonSection number={4} title="Using Components">
-          <div className="space-y-6">
-            <p className="text-muted-foreground leading-relaxed">
-              Once a component is defined, you can use it inside another component.
-              React distinguishes between HTML elements and React components by their case.
-            </p>
-
-            <div className="grid gap-4 md:grid-cols-2">
-              <KeyPoint type="info">
-                <strong>lowercase names</strong> like <code className="px-1 py-0.5 bg-code-bg rounded font-mono text-xs">section</code> → HTML elements
-              </KeyPoint>
-              <KeyPoint type="info">
-                <strong>Uppercase names</strong> like <code className="px-1 py-0.5 bg-code-bg rounded font-mono text-xs">Profile</code> → React components
-              </KeyPoint>
-            </div>
-
-            <CodeBlock
-              title="Gallery.tsx"
-              code={`import Profile from "./Profile";
 
 export default function Gallery() {
   return (
     <section>
-      <h1>Amazing Scientists</h1>
+      <h1>Amazing scientists</h1>
       <Profile />
       <Profile />
       <Profile />
@@ -209,69 +78,283 @@ export default function Gallery() {
 }`}
             />
 
-            <LiveExample title="Gallery with Multiple Profiles">
-              <Gallery />
+            <LiveExample title="Root Component Demo">
+              <RootComponentDemo />
+            </LiveExample>
+
+            <KeyPoint type="info">
+              This pattern is fine for short examples, but as your app grows, you'll want to split components into separate files for better organization and maintainability.
+            </KeyPoint>
+          </div>
+        </LessonSection>
+
+        {/* Section 2: Exporting and Importing */}
+        <LessonSection number={2} title="Exporting and Importing a Component">
+          <div className="space-y-6">
+            <p className="text-muted-foreground leading-relaxed">
+              To use a component from another file, you need to <strong>export</strong> it from the source file and <strong>import</strong> it in the destination file.
+            </p>
+
+            <div className="grid md:grid-cols-2 gap-4">
+              <CodeBlock
+                title="Gallery.js"
+                code={`export default function Gallery() {
+  return (
+    <section>
+      <h1>Amazing scientists</h1>
+      <Profile />
+    </section>
+  );
+}`}
+              />
+              <CodeBlock
+                title="App.js"
+                code={`import Gallery from './Gallery.js';
+
+export default function App() {
+  return <Gallery />;
+}`}
+              />
+            </div>
+
+            <LiveExample title="Default Export Import">
+              <div className="flex items-center gap-4">
+                <ProfileDefault />
+                <div>
+                  <p className="text-sm font-medium text-foreground">Katherine Johnson</p>
+                  <p className="text-xs text-muted-foreground">Imported using default export</p>
+                </div>
+              </div>
+            </LiveExample>
+
+            <KeyPoint type="correct">
+              <code className="px-1 bg-muted rounded">export default</code> makes a component the main export of its file. You can import it with any name you want.
+            </KeyPoint>
+          </div>
+        </LessonSection>
+
+        {/* Section 3: Default vs Named Exports */}
+        <LessonSection number={3} title="Default vs. Named Exports">
+          <div className="space-y-6">
+            <p className="text-muted-foreground leading-relaxed">
+              JavaScript offers two main ways to export values: <strong>default exports</strong> and <strong>named exports</strong>.
+            </p>
+
+            <ImportExportTable data={importExportData} />
+
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="space-y-4">
+                <h3 className="font-semibold text-foreground">Default Export</h3>
+                <CodeBlock
+                  title="Gallery.js"
+                  code={`export default function Gallery() {
+  // ...
+}`}
+                  showLineNumbers={false}
+                />
+                <CodeBlock
+                  title="Importing"
+                  code={`import Gallery from './Gallery.js';
+// OR with any name:
+import MyGallery from './Gallery.js';`}
+                  showLineNumbers={false}
+                />
+                <KeyPoint type="info">
+                  Only <strong>one</strong> default export per file. Can be imported with any name.
+                </KeyPoint>
+              </div>
+
+              <div className="space-y-4">
+                <h3 className="font-semibold text-foreground">Named Export</h3>
+                <CodeBlock
+                  title="Gallery.js"
+                  code={`export function Profile() {
+  // ...
+}`}
+                  showLineNumbers={false}
+                />
+                <CodeBlock
+                  title="Importing"
+                  code={`import { Profile } from './Gallery.js';
+// Must use exact name (or alias):
+import { Profile as UserProfile } from './Gallery.js';`}
+                  showLineNumbers={false}
+                />
+                <KeyPoint type="info">
+                  <strong>Multiple</strong> named exports per file. Must import with exact name (or use alias).
+                </KeyPoint>
+              </div>
+            </div>
+
+            <LiveExample title="Named Exports in Action">
+              <div className="space-y-4">
+                <p className="text-sm text-muted-foreground">Three named exports from the same file:</p>
+                <div className="flex flex-wrap items-center gap-4">
+                  <div className="text-center">
+                    <Profile />
+                    <p className="text-xs text-muted-foreground mt-2">Profile</p>
+                  </div>
+                  <ProfileCard />
+                  <ProfileBadge />
+                </div>
+              </div>
             </LiveExample>
           </div>
         </LessonSection>
 
-        {/* Section 5: Nesting and Organizing */}
-        <LessonSection number={5} title="Nesting and Organizing Components">
+        {/* Section 4: Multiple Exports from Same File */}
+        <LessonSection number={4} title="Exporting Multiple Components from the Same File">
           <div className="space-y-6">
             <p className="text-muted-foreground leading-relaxed">
-              Best practice: define all components at the top level, not inside another component.
-              You can keep multiple small components in the same file.
+              You can mix default and named exports in a single file. This is useful when you have a main component with helper components.
             </p>
 
-            <div className="grid gap-4 md:grid-cols-2">
-              <div>
-                <h4 className="text-sm font-medium text-muted-foreground mb-3">❌ Avoid this pattern:</h4>
-                <CodeBlock
-                  title="Gallery.tsx"
-                  showLineNumbers={false}
-                  code={`export default function Gallery() {
-  function Profile() { /* ... */ }
-  // ❌ Nested definition
-  return <Profile />;
+            <CodeBlock
+              title="Gallery.js"
+              code={`// Named export
+export function Profile() {
+  return <img src="https://i.imgur.com/MK3eW3As.jpg" alt="Katherine Johnson" />;
+}
+
+// Named export
+export function SectionTitle({ children }) {
+  return <h2 className="title">{children}</h2>;
+}
+
+// Default export (main component)
+export default function Gallery() {
+  return (
+    <section>
+      <SectionTitle>Amazing scientists</SectionTitle>
+      <Profile />
+    </section>
+  );
 }`}
-                />
+            />
+
+            <CodeBlock
+              title="App.js (Importing mixed exports)"
+              code={`// Import default AND named exports together
+import Gallery, { Profile, SectionTitle } from './Gallery.js';
+
+export default function App() {
+  return (
+    <div>
+      <Gallery />
+      <SectionTitle>Featured</SectionTitle>
+      <Profile />
+    </div>
+  );
+}`}
+            />
+
+            <LiveExample title="Mixed Exports Demo">
+              <div className="space-y-4">
+                <div className="p-3 bg-muted/30 rounded-lg">
+                  <SectionTitle>Custom Section Title (Named Export)</SectionTitle>
+                  <p className="text-sm text-muted-foreground">Used independently from the default export</p>
+                </div>
+                <Gallery />
               </div>
-              <div>
-                <h4 className="text-sm font-medium text-muted-foreground mb-3">✅ Correct pattern:</h4>
-                <CodeBlock
-                  title="Gallery.tsx"
-                  showLineNumbers={false}
-                  code={`function Profile() { /* ... */ }
+            </LiveExample>
+
+            <KeyPoint type="correct">
+              Mixing exports lets you expose helper components while keeping a clear main component as the default.
+            </KeyPoint>
+          </div>
+        </LessonSection>
+
+        {/* Section 5: Splitting into Multiple Files */}
+        <LessonSection number={5} title="Splitting Components into Multiple Files">
+          <div className="space-y-6">
+            <p className="text-muted-foreground leading-relaxed">
+              For larger projects, it's best practice to keep each component in its own file. This makes your codebase easier to navigate and maintain.
+            </p>
+
+            <div className="grid md:grid-cols-3 gap-4">
+              <CodeBlock
+                title="Profile.js"
+                code={`export default function Profile() {
+  return (
+    <img
+      src="https://i.imgur.com/..."
+      alt="Katherine Johnson"
+    />
+  );
+}`}
+              />
+              <CodeBlock
+                title="Gallery.js"
+                code={`import Profile from './Profile.js';
 
 export default function Gallery() {
-  return <Profile />;
+  return (
+    <section>
+      <h1>Amazing scientists</h1>
+      <Profile />
+      <Profile />
+      <Profile />
+    </section>
+  );
 }`}
-                />
-              </div>
+              />
+              <CodeBlock
+                title="App.js"
+                code={`import Gallery from './Gallery.js';
+
+export default function App() {
+  return (
+    <Gallery />
+  );
+}`}
+              />
             </div>
+
+            <LiveExample title="Split Files Demo">
+              <SplitFilesDemo />
+            </LiveExample>
+
+            <div className="grid md:grid-cols-2 gap-4">
+              <KeyPoint type="correct">
+                <strong>One component per file</strong> makes code easier to find and reduces merge conflicts in team projects.
+              </KeyPoint>
+              <KeyPoint type="correct">
+                <strong>Clear import paths</strong> show component dependencies at a glance.
+              </KeyPoint>
+            </div>
+
+            <KeyPoint type="incorrect">
+              Avoid putting too many components in a single file — it becomes hard to navigate and maintain as the app grows.
+            </KeyPoint>
           </div>
         </LessonSection>
 
         {/* Recap */}
-        <section className="py-12">
+        <section className="py-12 animate-fade-in">
           <RecapCard
             items={[
-              "React is a JavaScript library for building user interfaces.",
-              "The UI is made up of components, which are reusable building blocks.",
-              "A React component is a JavaScript function that returns JSX markup, which looks like HTML.",
-              "Component names always start with a capital letter.",
-              "You can reuse components anywhere in your app.",
-              "Components can be nested inside others, forming a tree structure.",
-              "Define all components at the top level — never inside another component.",
+              "The root component file (App.js) is the main entry point of your React application",
+              "Use 'export default' for the main component of a file — only one allowed per file",
+              "Use named exports ('export function') when you need multiple exports from one file",
+              "Import default exports without curly braces: import Gallery from './Gallery'",
+              "Import named exports with curly braces: import { Profile } from './Gallery'",
+              "You can mix default and named exports: import Gallery, { Profile } from './Gallery'",
+              "Split components into separate files for better organization and maintainability",
             ]}
           />
         </section>
-
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-border py-8 px-6 text-center text-sm text-muted-foreground">
-        <p>React 19.2 Lesson 1 Playground • Built with ❤️ for learning</p>
+      <footer className="bg-muted/30 border-t border-border py-8 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-sm text-muted-foreground">
+            React 19.2 Tutorial — Lesson 2: Importing and Exporting Components
+          </p>
+          <p className="text-xs text-muted-foreground mt-2">
+            By Luis Coco Enríquez
+          </p>
+        </div>
       </footer>
     </div>
   );
