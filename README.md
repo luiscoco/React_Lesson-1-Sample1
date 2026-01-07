@@ -19,6 +19,17 @@ An interactive educational playground demonstrating the fundamentals of React - 
 
 <img width="818" height="399" alt="image" src="https://github.com/user-attachments/assets/2fe570d1-4742-482d-9f85-894242fd9813" />
 
+<img width="882" height="446" alt="image" src="https://github.com/user-attachments/assets/73c4ae0a-5a03-42ec-950c-c7dd1319bfcd" />
+
+<img width="822" height="575" alt="image" src="https://github.com/user-attachments/assets/87c809eb-ae22-4ad3-9ff3-818d42ed3a80" />
+
+<img width="883" height="638" alt="image" src="https://github.com/user-attachments/assets/75baaf09-c945-494d-8ffe-ee912ca70dca" />
+
+<img width="823" height="254" alt="image" src="https://github.com/user-attachments/assets/2e228c34-1efe-4086-b5e0-848a129e6b3b" />
+
+<img width="885" height="813" alt="image" src="https://github.com/user-attachments/assets/f71d3298-7959-42c5-852d-b9963b28e89d" />
+
+
 
 ## 📚 Table of Contents
 
