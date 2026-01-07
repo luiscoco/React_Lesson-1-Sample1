@@ -8,9 +8,11 @@ const CodeBlock = ({ code, title, showLineNumbers = true }: CodeBlockProps) => {
   const lines = code.trim().split('\n');
 
   const highlightSyntax = (line: string) => {
-    // Simple syntax highlighting
-    return line
-      .replace(/(function|return|export|default|const|let|import|from)/g, '<span class="text-code-keyword font-semibold">$1</span>')
+    // Escape HTML first
+    const escaped = line.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    // Then apply syntax highlighting
+    return escaped
+      .replace(/\b(function|return|export|default|const|let|import|from)\b/g, '<span class="text-code-keyword font-semibold">$1</span>')
       .replace(/(&lt;\/?\w+)/g, '<span class="text-code-tag">$1</span>')
       .replace(/(\/&gt;|&gt;)/g, '<span class="text-code-tag">$1</span>')
       .replace(/("[^"]*")/g, '<span class="text-code-string">$1</span>')
@@ -40,7 +42,7 @@ const CodeBlock = ({ code, title, showLineNumbers = true }: CodeBlockProps) => {
               )}
               <code
                 className="text-code-text"
-                dangerouslySetInnerHTML={{ __html: highlightSyntax(line.replace(/</g, '&lt;').replace(/>/g, '&gt;')) }}
+                dangerouslySetInnerHTML={{ __html: highlightSyntax(line) }}
               />
             </div>
           ))}
