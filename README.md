@@ -9,6 +9,30 @@ An interactive playground application for learning **Importing and Exporting Com
 
 ---
 
+<img width="870" height="267" alt="image" src="https://github.com/user-attachments/assets/9820f0b6-245f-4d82-938f-4f267dba1448" />
+
+<img width="904" height="579" alt="image" src="https://github.com/user-attachments/assets/284a531f-50f0-47aa-9699-26483e89bd50" />
+
+<img width="820" height="438" alt="image" src="https://github.com/user-attachments/assets/1cd8e554-c093-4392-b3d9-20851d86caa7" />
+
+<img width="882" height="725" alt="image" src="https://github.com/user-attachments/assets/d1054ec2-0a85-4520-a803-2b94876ac205" />
+
+<img width="868" height="815" alt="image" src="https://github.com/user-attachments/assets/6e77c28b-1adf-4f11-b746-b9768fa4c980" />
+
+<img width="812" height="302" alt="image" src="https://github.com/user-attachments/assets/d3b5400c-c5c9-4351-9efa-ffa7994e19f3" />
+
+<img width="881" height="687" alt="image" src="https://github.com/user-attachments/assets/946c4800-183f-4d34-80fb-cfda519ba460" />
+
+<img width="834" height="762" alt="image" src="https://github.com/user-attachments/assets/d5c829dc-12ff-4924-a689-2ae607a6ec5a" />
+
+<img width="811" height="72" alt="image" src="https://github.com/user-attachments/assets/9c270d01-052d-4105-a269-1a505f4fc356" />
+
+<img width="876" height="528" alt="image" src="https://github.com/user-attachments/assets/b39f29fa-468b-48e8-8236-ad9e526daa5c" />
+
+<img width="809" height="747" alt="image" src="https://github.com/user-attachments/assets/73bf4e51-db72-44e1-8406-469084cf8860" />
+
+<img width="872" height="344" alt="image" src="https://github.com/user-attachments/assets/2f3247a7-2f67-4327-b914-1b7d628ce658" />
+
 ## 🎯 What You'll Learn
 
 - The root component file and its purpose
