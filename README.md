@@ -1,5 +1,7 @@
 # React 19.2 Lesson 1 Playground
 
+## Demo
+
 An interactive educational playground demonstrating the fundamentals of React - **Describing the UI and Creating Your First React Component**.
 
 ![React Playground](https://img.shields.io/badge/React-19.2-61DAFB?style=for-the-badge&logo=react&logoColor=white)
@@ -8,6 +10,15 @@ An interactive educational playground demonstrating the fundamentals of React - 
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)
 
 ---
+
+<img width="1919" height="455" alt="image" src="https://github.com/user-attachments/assets/28e928e4-ad86-43b3-837a-970dad1ae267" />
+
+<img width="1216" height="943" alt="image" src="https://github.com/user-attachments/assets/e25a7884-6a23-4b70-9559-3a0a173ae669" />
+
+<img width="902" height="739" alt="image" src="https://github.com/user-attachments/assets/65d73359-d45f-43ce-9c77-d75eca3f15a3" />
+
+<img width="818" height="399" alt="image" src="https://github.com/user-attachments/assets/2fe570d1-4742-482d-9f85-894242fd9813" />
+
 
 ## 📚 Table of Contents
 
